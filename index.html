@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Number Guess</title>
+</head>
+<body>
+ <h1>Can you guess the letter?</h1>
+ <div class="container">
+     <p class="question">Choose a letter</p>
+     <p class="score">Score</p>
+     <p class="guesses">Number of Guesses left</p>
+     
+
+ </div>
+
+ <script type="text/javascript">
+     var letters = ['a','b','c'];
+     var score = 0;
+     var counter = [1,2,3];
+    //  var questionPop = prompt("Choose a Letter");
+
+    //  typeletter: function(){
+    //      alert("Here is response");
+    //  }
+
+
+
+
+
+    //  document.onkeyup = function(event){}
+          var letter=$(".question")
+         for (var i=0; i < letters.length; i++){
+             var alphabet=$("<div>");
+             alphabet.text(letters[i]);
+             letter.append(alphabet);
+             console.log(letters);
+         }
+
+        //  function remainingGuess(){
+        //      if (counter <=(counter.length -1)) {
+        //          document.querySelector(".guesses").innerHTML = counter[i];
+        //      }
+        //      console.log ("remainingGuess");
+        //  }
+
+         function updateScore() {
+             document.querySelector(".score").innerHTML = "score:"+ score;
+         }
+
+         updateScore();
+
+         document.onkeyup = function(event){
+
+             if(counter === letters.length){
+                 return;
+             }
+
+             var userInput = event.key.toLowerCase();
+
+             if (userInput ==="a" || userInput === "b" || userInput === "c" ){
+                 alert("You Win!");
+                 score++;
+                 updateScore();
+             }
+             else{
+                 alert("You Lose");
+                 score--;
+                 updateScore();
+             }
+         }
+
+         
+
+        //  if (letter === "a"){
+        //      alert("You Win");
+        //  }
+        //  else function(){
+        //      alert("Try Again")
+        //  }
+     
+     
+
+     
+ 
+ </script>
+    
+</body>
+</html>
