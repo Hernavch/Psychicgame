@@ -5,26 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    
     <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <title>Number Guess</title>
+  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+ 
+    <title>Guess the Friend</title>
 </head>
 <body>
- <h1>Can you guess the letter?</h1>
- <div class="container">
-     <p class="question">Choose a letter</p>
+
+ <h1 style="font-family:'Permanent Marker', cursive " class="header">Can you guess the Friend?</h1>
+ <div style="font-family:'Permanent Marker', cursive " class="container">
+     <h2 class="question">Choose a Friend</h2>
+     <div class="scoreboard">
      <p class="score">Score</p>
      <p class="guesses">Number of Guesses left</p>
+     </div>
+
+     <form>
+            <label for="answer">Guess the Word</label>
+            <input type="text" id="answer">
+            <input type="submit" id="enterbtn" value="Submit">
+    </form>
+          
      
 
  </div>
 
  <script type="text/javascript">
-     var letters = ['a','b','c'];
+     var letters = ['a','b','c','d','e','pheobe'];
      var score = 0;
      var counter = [1,2,3];
     //  var questionPop = prompt("Choose a Letter");
@@ -41,7 +50,7 @@
           var letter=$(".question")
          for (var i=0; i < letters.length; i++){
              var alphabet=$("<div>");
-             alphabet.text(letters[i]);
+             alphabet.data(letters[i]);
              letter.append(alphabet);
              console.log(letters);
          }

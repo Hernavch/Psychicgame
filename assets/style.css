@@ -1,3 +1,60 @@
+
+
 body{
-    background-image: url("assets/pictures/trees.jpg");
+    background-image: url("../assets/pictures/friends.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.header {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25pt;
+    padding:20px;
+    
+    text-align: center;
+    background-image: url("../assets/pictures/fancy-cushion.png");
+    color:aliceblue;
+        /* bottom:100px; */
+    margin:0px 200px;
+    border:solid;
+    border-radius: 25px;
+    border-width: thin;
+    border-color: aliceblue;
+    letter-spacing: 2px;
+    font-style: italic;
+
+    
+
+}
+
+.container{
+    background-image: url("../assets/pictures/fancy-cushion.png");
+    color:aliceblue;
+    border-width: thick;
+    border:solid;
+    border-color:aliceblue;
+    margin:50px 200px;
+    text-align: left;
+    padding:20px;
+    border-radius: 25px;
+
+    /* max-width: 980px; */
+}
+
+.scoreboard {
+    background-image: url("../assets/pictures/fancy-cushion.png");
+    color:aliceblue;
+    border-width: thick;
+    border:solid;
+    border-color:aliceblue;
+    margin:0;
+    text-align: center;
+    padding:20px;
+    border-radius: 25px;
+    
+}
+
+.score{
+    font-size: 20px;
 }
