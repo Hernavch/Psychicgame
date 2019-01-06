@@ -50,16 +50,14 @@
     var nameGen = friendsName[Math.floor(Math.random() * friendsName.length)];
     var friend = nameGen;
     var friends = friend.split("");
-    // var word = friendsName[nameGen];
     var guessNum = friend.length;
-    var correctGuess =[];
-    var incorrectGuess =[];
-
-    var frnd = friend.charAt("index");
+    var answers =[];
     
 
+    // console.logs 
+
     console.log(friend);
-    console.log(frnd);
+    
     console.log(friends);
     
 // Have remaining score change
@@ -68,47 +66,66 @@
              document.querySelector(".score").innerHTML = "score:"+ score;
          }
     // Remaining Guesses
-           for (var j = 0; j < friend.length; j++) {
-               if (friend[j] === guessNum) {
+           for (var j = 0; j < friends.length; j++) {
+               if (friends[j] === guessNum) {
                     guessRight[j] = guessNum;
                    guessNum--;
                     };
                 document.getElementById("guessRem").innerHTML ="Guess Remaining: " + guessNum;
+                console.log(friends[j]);
            };
 
          updateScore();
 
 // Show Underscores
-        var guessRight = [];
-        for (var i = 0; i < friend.length; i++) {
-            guessRight[i] = "_ ";
-            document.getElementById("correctValue").innerHTML = guessRight + "";
-        console.log(guessRight);
+        // var guessRight = [];
+        // for (var i = 0; i < friend.length; i++) {
+        //     guessRight[i] = "_ ";
+        //     document.getElementById("correctValue").innerHTML = guessRight + "";
+
+        //     }
+        // console.log(guessRight);
 
 
-        };
+        // if(userInput !== guessRight[j]){
+        //     alert("Correct"); 
+        // };
+                    
+
         
-
-
 
 // Calling functions hold key inputs
         document.onkeyup = function(event){
-            var userInput = String.fromCharCode(event.keyCode);
+            var userInput = event.key.toLowerCase();
+            var guessArr = userInput[""];
+
+            console.log(userInput);
+
+            var guessRight = [];
+        for (var i = 0; i < friend.length; i++) {
+            guessRight[i] = "_ ";
+            document.getElementById("correctValue").innerHTML = guessRight + "";
+
+                 
+               };
+
+         if (friends[j] == userInput) {
+            guessRight.push(userInput);
+            alert("Correct")
+         }
+        };
 
             
-            if(userInput === friends){
-                guessRight.push(userInput);                ;
-            }
-            else {
-                incorrectGuess.push(userInput);
-            }
+            // if(userInput === guessRight[j]){
+            //     guessRight.push(userInput);                
+            // }
+            // else {
+            //     answers.push(userInput);
+            // }
 
-            console.log(guessRight);
-            console.log(incorrectGuess);
-
-            
+     
           
-        }
+        // }
 
     // function insertValues() {
     //     var x = document.getElementById("fguess").value;
@@ -123,9 +140,7 @@
     //      }
     //     };
 
-        
-
-              
+                      
          </script>
 
         
