@@ -19,21 +19,23 @@
      <h2 class="question">Choose a Friend</h2>
      <div class="scoreboard">
      <p class="score">Score</p>
-     <p class="guessNum">Guesses Remaining</p>
+          <div class="guessNum" id=guessRem></div>
      </div>
 
      <div id="box1"  class="inputs">
-            Guess Input <input type="text" id="fguess" onkeyup="myFunction()">
+          <p>Guess Input 
+              <!-- <input type="text" id="fguess" onkeyup="insertValues()"> -->
+             </p> 
+          <div id="correctValue"></div>
+            
 
      </div>
 
      <div class="question" id= "chosen1">
          <p>Letters Chosen</p>
+         <div id="wrongValue"></div>
      </div>
-
-    
           
-     
 
  </div>
 
@@ -43,93 +45,91 @@
     
 //  score count
      var score = 0;
-     var guessRem = 3;
-
-
+     
 //  Select Name
     var nameGen = friendsName[Math.floor(Math.random() * friendsName.length)];
-    var friend = nameGen.charCodeAt;
-    var correctGuess = [];
-    var incorrectGuess = [];
-    
-    
+    var friend = nameGen;
+    var friends = friend.split("");
+    // var word = friendsName[nameGen];
+    var guessNum = friend.length;
+    var correctGuess =[];
+    var incorrectGuess =[];
+
+    var frnd = friend.charAt("index");
     
 
-  console.log(name);
-  console.log(friendsName.length);
-  console.log(nameGen);
-  console.log(friend);
+    console.log(friend);
+    console.log(frnd);
+    console.log(friends);
+    
 // Have remaining score change
-//   function updateGuessRem (){
-//       guessRem
-//   };
-
-// Calling functions hold key inputs
-function myFunction() {
-  var x = document.getElementById("fguess").value;
-  document.getElementById("chosen1").innerHTML = x;
-  if (nameGen.indexOf('hello') > -1)
-{
-  alert("hello found inside your_string");
-
-}
-
-  };
-
-
-
-     document.onkeyup = function(event) {
-
-
-     }
-
-
-// Function to 
-
-        //   var letter=$(".inputs")
-        //  for (var i=0; i < letters.length; i++){
-        //      var alphabet=$("<div>");
-        //      alphabet.data(letters[i]);
-        //      letter.append(alphabet);
-        //      console.log(letters);
-        //  }
-
-        //  function remainingGuess(){
-        //      if (counter <=(counter.length -1)) {
-        //          document.querySelector(".guesses").innerHTML = counter[i];
-        //      }
-        //      console.log ("remainingGuess");
-        //  }
-            // Score Updates
-         function updateScore() {
+    // Score Updates
+          function updateScore() {
              document.querySelector(".score").innerHTML = "score:"+ score;
          }
-         
+    // Remaining Guesses
+           for (var j = 0; j < friend.length; j++) {
+               if (friend[j] === guessNum) {
+                    guessRight[j] = guessNum;
+                   guessNum--;
+                    };
+                document.getElementById("guessRem").innerHTML ="Guess Remaining: " + guessNum;
+           };
 
          updateScore();
 
+// Show Underscores
+        var guessRight = [];
+        for (var i = 0; i < friend.length; i++) {
+            guessRight[i] = "_ ";
+            document.getElementById("correctValue").innerHTML = guessRight + "";
+        console.log(guessRight);
+
+
+        };
+        
+
+
+
+// Calling functions hold key inputs
+        document.onkeyup = function(event){
+            var userInput = String.fromCharCode(event.keyCode);
+
+            
+            if(userInput === friends){
+                guessRight.push(userInput);                ;
+            }
+            else {
+                incorrectGuess.push(userInput);
+            }
+
+            console.log(guessRight);
+            console.log(incorrectGuess);
+
+            
           
+        }
 
-            //  if(guessRem === letters.length){
-            //      return;
-            //  }
+    // function insertValues() {
+    //     var x = document.getElementById("fguess").value;
+    //     if()
+    //     document.getElementById("wrongValue").innerHTML = x;
+    //     console.log(insertValues)
+    //     if(insertValues.indexOf(friends)> -1){
+    //         insertValues.push(correctGuess);
 
-            //  var userInput = event.key.toLowerCase();
-
-            //  if (userInput ==="a" || userInput === "b" || userInput === "c" ){
-            //      alert("You Win!");
-            //      score++;
-            //      updateScore();
-            //  }
-            //  else{
-            //      alert("You Lose");
-            //      guessRem--;
-            //      updateScore();
-            //  }
-         
+    //         console.log(insertValues);
+          
+    //      }
+    //     };
 
         
-     </script>
+
+              
+         </script>
+
+        
+    
     
 </body>
 </html>
