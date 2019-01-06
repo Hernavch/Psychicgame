@@ -19,41 +19,80 @@
      <h2 class="question">Choose a Friend</h2>
      <div class="scoreboard">
      <p class="score">Score</p>
-     <p class="guesses">Number of Guesses left</p>
+     <p class="guessNum">Guesses Remaining</p>
      </div>
 
-     <form>
-            <label for="answer">Guess the Word</label>
-            <input type="text" id="answer">
-            <input type="submit" id="enterbtn" value="Submit">
-    </form>
+     <div id="box1"  class="inputs">
+            Guess Input <input type="text" id="fguess" onkeyup="myFunction()">
+
+     </div>
+
+     <div class="question" id= "chosen1">
+         <p>Letters Chosen</p>
+     </div>
+
+    
           
      
 
  </div>
 
  <script type="text/javascript">
-     var letters = ['a','b','c','d','e','pheobe'];
+//  Names to guess
+     var friendsName = ['ross', 'rachel', 'monica', 'joey', 'chandler', 'pheobe'];
+    
+//  score count
      var score = 0;
-     var counter = [1,2,3];
-    //  var questionPop = prompt("Choose a Letter");
-
-    //  typeletter: function(){
-    //      alert("Here is response");
-    //  }
+     var guessRem = 3;
 
 
+//  Select Name
+    var nameGen = friendsName[Math.floor(Math.random() * friendsName.length)];
+    var friend = nameGen.charCodeAt;
+    var correctGuess = [];
+    var incorrectGuess = [];
+    
+    
+    
+
+  console.log(name);
+  console.log(friendsName.length);
+  console.log(nameGen);
+  console.log(friend);
+// Have remaining score change
+//   function updateGuessRem (){
+//       guessRem
+//   };
+
+// Calling functions hold key inputs
+function myFunction() {
+  var x = document.getElementById("fguess").value;
+  document.getElementById("chosen1").innerHTML = x;
+  if (nameGen.indexOf('hello') > -1)
+{
+  alert("hello found inside your_string");
+
+}
+
+  };
 
 
 
-    //  document.onkeyup = function(event){}
-          var letter=$(".question")
-         for (var i=0; i < letters.length; i++){
-             var alphabet=$("<div>");
-             alphabet.data(letters[i]);
-             letter.append(alphabet);
-             console.log(letters);
-         }
+     document.onkeyup = function(event) {
+
+
+     }
+
+
+// Function to 
+
+        //   var letter=$(".inputs")
+        //  for (var i=0; i < letters.length; i++){
+        //      var alphabet=$("<div>");
+        //      alphabet.data(letters[i]);
+        //      letter.append(alphabet);
+        //      console.log(letters);
+        //  }
 
         //  function remainingGuess(){
         //      if (counter <=(counter.length -1)) {
@@ -61,47 +100,36 @@
         //      }
         //      console.log ("remainingGuess");
         //  }
-
+            // Score Updates
          function updateScore() {
              document.querySelector(".score").innerHTML = "score:"+ score;
          }
+         
 
          updateScore();
 
-         document.onkeyup = function(event){
+          
 
-             if(counter === letters.length){
-                 return;
-             }
+            //  if(guessRem === letters.length){
+            //      return;
+            //  }
 
-             var userInput = event.key.toLowerCase();
+            //  var userInput = event.key.toLowerCase();
 
-             if (userInput ==="a" || userInput === "b" || userInput === "c" ){
-                 alert("You Win!");
-                 score++;
-                 updateScore();
-             }
-             else{
-                 alert("You Lose");
-                 score--;
-                 updateScore();
-             }
-         }
-
+            //  if (userInput ==="a" || userInput === "b" || userInput === "c" ){
+            //      alert("You Win!");
+            //      score++;
+            //      updateScore();
+            //  }
+            //  else{
+            //      alert("You Lose");
+            //      guessRem--;
+            //      updateScore();
+            //  }
          
 
-        //  if (letter === "a"){
-        //      alert("You Win");
-        //  }
-        //  else function(){
-        //      alert("Try Again")
-        //  }
-     
-     
-
-     
- 
- </script>
+        
+     </script>
     
 </body>
 </html>
