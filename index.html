@@ -19,7 +19,7 @@
      <h2 class="question">Choose a Friend</h2>
      <div class="scoreboard">
      <p class="score">Score</p>
-          <div class="guessNum" id=guessRem></div>
+          <div class="guessNumber" id=guessRem></div>
      </div>
 
      <div id="box1"  class="inputs">
@@ -50,14 +50,14 @@
     var nameGen = friendsName[Math.floor(Math.random() * friendsName.length)];
     var friend = nameGen;
     var friends = friend.split("");
+    // var word = friendsName[nameGen];
     var guessNum = friend.length;
-    var answers =[];
+    var correctGuess =[];
+    var incorrectGuess =[];
+    var frnd = friend.charAt("index");
     
-
-    // console.logs 
-
     console.log(friend);
-    
+    console.log(frnd);
     console.log(friends);
     
 // Have remaining score change
@@ -66,67 +66,48 @@
              document.querySelector(".score").innerHTML = "score:"+ score;
          }
     // Remaining Guesses
-           for (var j = 0; j < friends.length; j++) {
-               if (friends[j] === guessNum) {
+           for (var j = 0; j < friend.length; j++) {
+              if (friend[j] === guessNum) {
                     guessRight[j] = guessNum;
-                   guessNum--;
+                //    guessNum--;
                     };
                 document.getElementById("guessRem").innerHTML ="Guess Remaining: " + guessNum;
-                console.log(friends[j]);
            };
-
          updateScore();
-
 // Show Underscores
-        // var guessRight = [];
-        // for (var i = 0; i < friend.length; i++) {
-        //     guessRight[i] = "_ ";
-        //     document.getElementById("correctValue").innerHTML = guessRight + "";
-
-        //     }
-        // console.log(guessRight);
-
-
-        // if(userInput !== guessRight[j]){
-        //     alert("Correct"); 
-        // };
-                    
-
-        
-
-// Calling functions hold key inputs
-        document.onkeyup = function(event){
-            var userInput = event.key.toLowerCase();
-            var guessArr = userInput[""];
-
-            console.log(userInput);
-
-            var guessRight = [];
+        var guessRight = [];
         for (var i = 0; i < friend.length; i++) {
             guessRight[i] = "_ ";
             document.getElementById("correctValue").innerHTML = guessRight + "";
-
-                 
-               };
-
-         if (friends[j] == userInput) {
-            guessRight.push(userInput);
-            alert("Correct")
-         }
+        console.log(guessRight);
         };
-
+        
+// Calling functions hold key inputs
+        document.onkeyup = function(event){
+            var firstInput = String.fromCharCode(event.keyCode);
+            var userInput = firstInput.toLowerCase();
+            var guessNumb = guessNum;
             
-            // if(userInput === guessRight[j]){
-            //     guessRight.push(userInput);                
-            // }
-            // else {
-            //     answers.push(userInput);
-            // }
-
-     
+            
+            if(friends.indexOf(userInput)>-1){
+                correctGuess.push(userInput);
+                score++;
+                
+                
+                
+            }
+            else {
+                incorrectGuess.push(userInput);
+                guessNumb--;
+            }
+            document.getElementById("guessRem").innerHTML ="Guess Remaining: " + guessNum;
+            console.log(correctGuess);
+            console.log(incorrectGuess);
+            console.log(score);
+            console.log(guessNumb);
+            
           
-        // }
-
+        }
     // function insertValues() {
     //     var x = document.getElementById("fguess").value;
     //     if()
@@ -134,13 +115,12 @@
     //     console.log(insertValues)
     //     if(insertValues.indexOf(friends)> -1){
     //         insertValues.push(correctGuess);
-
     //         console.log(insertValues);
           
     //      }
     //     };
-
-                      
+        
+              
          </script>
 
         
